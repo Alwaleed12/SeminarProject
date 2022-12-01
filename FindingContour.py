@@ -6,7 +6,6 @@ import random as rng
 import datetime
 import matplotlib.pyplot as plt
 
-
 rng.seed(12345)
 
 def thresh_callback(val):
@@ -46,28 +45,6 @@ src = cv.imread(cv.samples.findFile(args.input))
 if src is None:
     print('Could not open or find the image:', args.input)
     exit(0)
-
-# counting objects
-# gray = cv.cvtColor(src, cv.COLOR_BGR2GRAY)
-# plt.imshow(gray, cmap='gray')
-
-# blur = cv.GaussianBlur(gray, (11, 11), 0)
-# plt.imshow(blur, cmap='gray')
-
-# canny = cv.Canny(blur, 30, 150, 3)
-# plt.imshow(canny, cmap='gray')
-
-# dilated = cv.dilate(canny, (1, 1), iterations=0)
-# plt.imshow(dilated, cmap='gray')
-
-# (cnt, hierarchy) = cv.findContours(
-#     dilated.copy(), cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
-# rgb = cv.cvtColor(src, cv.COLOR_BGR2RGB)
-# cv.drawContours(rgb, cnt, -1, (0, 255, 0), 2)
-
-# print("coins in the image : ", len(cnt))
- 
-# plt.imshow(rgb)
 
 # Convert image to gray and blur it
 src_gray = cv.cvtColor(src, cv.COLOR_BGR2GRAY)

@@ -3,10 +3,12 @@ import cv2 as cv
 import numpy as np
 import argparse
 import random as rng
+import datetime
 
 rng.seed(12345)
 
 def thresh_callback(val):
+    start=datetime.datetime.now()
     threshold = val
 
     ## [Canny]
@@ -49,11 +51,19 @@ def thresh_callback(val):
     # Show in a window
     cv.imshow('Contours', drawing)
     ## [showDrawings]
+    
+    # Added Timing
+    end=datetime.datetime.now()
+    difference= end-start
+    seconds = difference.total_seconds()
+    miliseconds = seconds * 1000
+    print('the results in seconds = ', seconds)
+    print('the results in milisencods', miliseconds)
 
 ## [setup]
 # Load source image
 parser = argparse.ArgumentParser(description='Code for Creating Bounding boxes and circles for contours tutorial.')
-parser.add_argument('--input', help='Path to input image.', default='coins.png')
+parser.add_argument('--input', help='Path to input image.', default='coins.jpg')
 args = parser.parse_args()
 
 src = cv.imread(cv.samples.findFile(args.input))
