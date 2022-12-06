@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
  
-image = cv2.imread('cars.png')
+image = cv2.imread('coins.jpg')
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
  
 blur = cv2.GaussianBlur(gray, (11, 11), 0)
@@ -15,4 +15,4 @@ rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 cv2.drawContours(rgb, cnt, -1, (0, 255, 0), 2)
  
  
-print("coins in the image : ", len(cnt))
+print("cars in the image : ", len(cnt))
